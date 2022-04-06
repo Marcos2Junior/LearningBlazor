@@ -1,0 +1,11 @@
+﻿@page "/timer"
+@inherits TimerBase
+<PageTitle>Pomodoro Timer (@remaining)</PageTitle>
+<div class="timer @classTimer">
+    @remaining
+</div>
+<div class="">
+    <button class="btn btn-lg btn-primary" disabled="@startIsDisabled"  @onclick="Start">Start</button>
+    <button class="btn btn-lg btn-secondary" disabled="@stopIsDisabled" @onclick="Stop">Stop</button>
+    <button class="btn btn-lg btn-info" disabled="@resetIsDisabled" @onclick="Reset">Reset</button>
+</div>

@@ -1,0 +1,27 @@
+﻿@page "/birthday"
+
+<h2>What's your date of birth?</h2>
+<input type="text" @bind="dob" />
+<button class="btn btn-primary" @onclick="Submit">Submit</button>
+<hr />
+@if (day != null)
+{
+    <h3>You were born on a...@day! </h3>
+}
+
+@code {
+    private string dob = "";
+    private string day;
+
+    private void Submit()
+    {
+        if (dob != null)
+        {
+            var isValid = DateTime.TryParse(dob, out var date);
+            if (isValid)
+            {
+                day = date.DayOfWeek.ToString();
+            }
+        }
+    }
+}
